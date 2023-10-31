@@ -12,189 +12,22 @@
     />
     <!-- CSS Link -->
     <link rel="stylesheet" href="style.css" />
-    <!-- Font Awesome Links  -->
-    <link
-      rel="stylesheet"
-      href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-solid.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-regular.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-light.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://use.fortawesome.com/kits/1ce05b4b/publications/125785/woff2.css"
-      media="all"
-    />
   </head>
   <body>
-    <div class="top-menu">
-      <div class="drawer-btn">
-        <button type="button" onclick="openEditing()">
-          <i class="fa-light fa-palette"></i>
-        </button>
+    <div class="intro">
+      <div>
+        <h1>Welcome! to Excalidraw Clone</h1>
+        <p>Click on Screen to start Drawing</p>
       </div>
-      <div class="tool-div">
-        <div class="tools-menu">
-          <div id="lock" class="icon-div">
-            <i class="fa-light fa-unlock"></i>
-          </div>
-          <div class="vertical-line"></div>
-          <div id="hand" class="icon-div tool">
-            <i class="fa-light fa-hand"></i>
-          </div>
-          <div id="pointer" class="icon-div tool active-btn">
-            <i class="fa-solid fa-arrow-pointer" style="color: #6965db"></i>
-            <span class="icon-num">1</span>
-          </div>
-          <div id="pencil" class="icon-div tool">
-            <i class="fa-light fa-pencil"></i>
-            <span class="icon-num">2</span>
-          </div>
-          <div id="eraser" class="icon-div tool">
-            <i class="fa-light fa-eraser"></i>
-            <span class="icon-num">3</span>
-          </div>
-          <div id="line" class="icon-div tool">
-            <i class="fa-light fa-dash"></i>
-            <span class="icon-num">4</span>
-          </div>
-          <div id="square" class="icon-div tool">
-            <i class="fa-light fa-square"></i>
-            <span class="icon-num">5</span>
-          </div>
-          <div id="circle" class="icon-div tool">
-            <i class="fa-light fa-circle"></i>
-            <span class="icon-num">6</span>
-          </div>
-          <div id="diamond" class="icon-div tool">
-            <i class="fa-light fa-diamond"></i>
-            <span class="icon-num">7</span>
-          </div>
-          <div id="arrow" class="icon-div tool">
-            <i class="fa-light fa-arrow-right-long"></i>
-            <span class="icon-num">8</span>
-          </div>
-          <div id="other-btn" class="icon-div tool">
-            <i class="fa-light fa-font"></i>
-            <span class="icon-num">9</span>
-          </div>
-          <div id="save-img" class="icon-div">
-            <i class="fa-light fa-image"></i>
-            <span class="icon-num">0</span>
-          </div>
-          <div class="vertical-line"></div>
-          <div id="other-btn" class="icon-div tool">
-            <i class="fa-light fa-shapes"></i>
-          </div>
-        </div>
-      </div>
-      <div class="top-menu-right-div">
-        <div class="collab">
-          <i class="fa-light fa-user-group" style="color: #ffffff"></i>
-        </div>
-        <div class="library">
-          <i class="fa-regular fa-book-open"></i>
-          <span>Library</span>
-        </div>
-      </div>
+      <div class="intro-foot">© Made by Naveen Kumar</div>
     </div>
-    <section class="editing-div">
-      <div class="editing-inner-div1">
-        <p style="font-size: 12px">Stroke Color</p>
-        <div class="editing-inner-div2">
-          <div class="readymade-color" style="background: black"></div>
-          <div class="readymade-color" style="background: #e03131"></div>
-          <div class="readymade-color" style="background: #2f9e44"></div>
-          <div class="readymade-color" style="background: #1971c2"></div>
-          <div class="vertical-line"></div>
-          <input
-            id="color-picker"
-            class="color-picker"
-            type="color"
-            value="#ffdd00"
-          />
-        </div>
-      </div>
-      <div class="editing-inner-div1">
-        <p style="font-size: 12px">Canvas Background</p>
-        <div class="editing-inner-div2">
-          <div class="bg-readymade-color" style="background: #ffec99"></div>
-          <div class="bg-readymade-color" style="background: #a5d8ff"></div>
-          <div class="bg-readymade-color" style="background: #b2f2bb"></div>
-          <div class="bg-readymade-color" style="background: #ffc9c9"></div>
-          <div class="vertical-line"></div>
-          <input
-            id="color-picker-bg"
-            class="color-picker"
-            type="color"
-            value="#ededed"
-          />
-        </div>
-      </div>
-      <div
-        class="editing-inner-div1"
-        style="display: flex; align-items: center; gap: 6px"
-      >
-        <input type="checkbox" id="fill-color" />
-        <label for="fill-color" style="font-size: 12px">Fill color</label>
-      </div>
-      <div class="editing-inner-div1">
-        <p style="font-size: 12px">Stroke Width</p>
-        <input
-          type="range"
-          id="size-slider"
-          min="2"
-          max="30"
-          value="5"
-          style="width: 100%"
-        />
-      </div>
-      <div style="display: flex; justify-content: center">
-        <button class="clear-canvas">Clear Canvas</button>
-      </div>
-    </section>
-    <canvas id="canvas"></canvas>
-    <div id="foot">
-      <div class="foot-left">
-        <div class="zoom-div">
-          <div class="decrease"><i class="fa-regular fa-minus"></i></div>
-          <div class="percentage">100%</div>
-          <div class="increase"><i class="fa-regular fa-plus"></i></div>
-        </div>
-        <div class="undo-redo-div">
-          <div id="undo" class="undo">
-            <i class="fa-regular fa-rotate-left"></i>
-          </div>
-          <div id="redo" class="redo">
-            <i class="fa-regular fa-rotate-right"></i>
-          </div>
-        </div>
-      </div>
-      <div class="foot-right">
-        <div class="encript">
-          <i
-            class="fa-solid fa-shield-check"
-            style="color: #6965db; cursor: pointer"
-          ></i>
-        </div>
-        <div class="help">
-          <i class="fa-regular fa-circle-question"></i>
-        </div>
-      </div>
-    </div>
+    <!-- js -->
+    <script>
+      //   Redirect to main page:---------
+      const intro = document.querySelector(".intro");
+      intro.addEventListener("click", () => {
+        window.location.href = "./index.html";
+      });
+    </script>
   </body>
-  <script src="script.js"></script>
-  <script src="shapesFunction.js"></script>
-  <script src="undoRedo.js"></script>
-  <script src="otherFn.js"></script>
-  <script src="touchFn.js"></script>
 </html>
