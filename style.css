@@ -1,0 +1,416 @@
+@font-face {
+  font-family: "Virgil";
+  src: url("Virgil.woff2");
+  font-display: swap;
+}
+:root {
+  --white: #ffffff;
+  --hover: #7a7a7a;
+  --icon_num: #b8b8b8;
+  --grey-border: rgb(196, 196, 196);
+  --theme: #6965db;
+  --light-theme: #e3e2fe;
+  --dark-theme: #030064;
+  --text-color: #7b7b7b;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+#root {
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  /* overflow: hidden; */
+}
+
+/* canvas styling */
+#canvas{
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  z-index: 5;
+}
+/* welcome msg css */
+.intro{
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--theme);
+  z-index: 11;
+  background-color: var(--white);
+}
+.intro > div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.intro > div > h1{
+  text-align: center;
+  font-size: 4.5vw;
+  line-height: 2;
+}
+.intro > div > p{
+  font-size: 2.5vw;
+  color: var(--text-color);
+}
+.intro-foot{
+  position: absolute;
+  bottom: 1.2rem;
+  font-size: 1.8vw;
+  color: black;
+}
+
+/* top menu css */
+.top-menu {
+  position: absolute;
+  top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  height: 45px;
+  width: 100vw;
+  padding-inline: 1rem;
+
+}
+.drawer-btn > button {
+  width: 36px;
+  height: 36px;
+  background-color:var(--white);
+  border: 1px solid var(--grey-border);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: large;
+}
+.tool-div{
+    box-shadow: 0px 0px 3px var(--grey-border);
+    border-radius: 8px;
+    background-color:var(--white);
+    z-index: 10;
+}
+.tools-menu {
+  height: 45px;
+  width: 550px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding-inline: 5px;
+  border-radius: 8px;
+  z-index: 1;
+}
+.vertical-line {
+  border-right: 1px solid var(--grey-border);
+  height: 24px;
+}
+.icon-div {
+  width: 36px;
+  height: 36px;
+  font-size: 14px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+}
+.icon-div:hover{
+  background-color: var(--light-theme);
+}
+.icon-div span {
+  font-size: 10px;
+  color: var(--icon_num);
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+}
+/* active tool button on click with js */
+.active-btn{
+  background-color: var(--light-theme);
+  color: var(--dark-theme);
+
+  && span{
+    color: var(--dark-theme);
+  }
+}
+/* making them front using z-insex */
+.drawer-btn,
+.collab,
+.library,
+.zoom-div,
+.undo-redo-div,
+.encript >  i,
+.help{
+  z-index: 10;
+}
+/* btn hover effect */
+.drawer-btn>button:hover,
+.library:hover,
+.decrease:hover,
+.increase:hover,
+.undo:hover,
+.redo:hover,
+.help:hover {
+  background-color: rgb(240, 240, 240);
+}
+/* btn click effects */
+.drawer-btn button:active,
+.icon-div:active,
+.library:active,
+.decrease:active,
+.increase:active,
+.undo:active,
+.redo:active,
+.help:active {
+  border: 1px solid ;
+}
+.top-menu-right-div {
+  display: flex;
+  gap: 1rem;
+}
+.collab {
+  width: 36px;
+  height: 36px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background-color: var(--theme);
+  cursor: pointer;
+}
+.collab:hover {
+  background-color: #605cc6;
+}
+.library {
+  height: 36px;
+  font-size: 12px;
+  background-color:var(--white);
+  border: 1px solid var(--grey-border);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding-inline: 10px;
+  cursor: pointer;
+}
+.library span {
+  color: var(--text-color);
+}
+
+/* editing-div css: */
+.editing-div{
+  height: 285px;
+  width: 200px;
+  position: absolute;
+  left: -100%;
+  top: 80px;
+  box-shadow: 0px 0px 3px var(--grey-border);
+  border-radius: 8px;
+  color: rgb(43, 43, 43);
+  background-color:var(--white);
+  padding: 8px;
+  z-index: 10;
+  transition: all .2s ease-in-out;
+}
+.hidden{
+  display: none;
+}
+.editing-inner-div1{
+  margin: 10px 0;
+}
+.editing-inner-div1 > p{
+  line-height: 24px;
+}
+.editing-inner-div2{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.readymade-color{
+  border-radius: 6px;
+  width: 27px;
+  height: 26px;
+}
+.bg-readymade-color{
+  border-radius: 6px;
+  width: 27px;
+  height: 26px;
+}
+/* color picker */
+.color-picker{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 32px;
+  height: 35px;
+  border: none;
+  border-radius: 8px;
+  background-color: transparent;
+  cursor: pointer;
+}
+.color-picker::-webkit-color-swatch{
+  border-radius: 8px;
+  /* border:none; */
+}
+.color-picker::-moz-color-swatch{
+  border-radius: 8px;
+  border:none;
+}
+.clear-canvas{
+  border: none;
+  background-color: var(--light-theme);
+  border-radius: 8px;
+  padding: 8px 10px;
+  color: var(--dark-theme);
+}
+.clear-canvas:active{
+  border: 1px solid;
+}
+/* editing div css ends here */
+
+/* foot css */
+#foot {
+  position: absolute;
+  height: 45px;
+  width: 100%;
+  padding-inline: 1rem;
+  bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+.foot-left {
+  display: flex;
+  gap: 1rem;
+}
+.zoom-div {
+  height: 36px;
+  border: 1px solid var(--grey-border);
+  background-color:var(--white);
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.decrease,
+.increase {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+}
+.decrease {
+  height: 100%;
+  border-right: 1px solid var(--grey-border);
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  cursor: pointer;
+}
+.increase {
+  height: 100%;
+  border-left: 1px solid var(--grey-border);
+  cursor: pointer;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+.percentage {
+  padding-inline: 10px;
+  color: var(--text-color);
+  font-size: 14px;
+}
+.undo-redo-div {
+  height: 36px;
+  font-size: 12px;
+  background-color:var(--white);
+  border: 1px solid var(--grey-border);
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.undo {
+  width: 36px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  cursor: pointer;
+}
+.redo {
+  width: 36px;
+  height: 100%;
+  border-left: 1px solid var(--grey-border);
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.foot-right {
+  display: flex;
+  gap: 1rem;
+}
+.encript {
+  height: 36px;
+  width: 36px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.help {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  width: 36px;
+  font-size: 13px;
+  background-color:var(--white);
+  border: 1px solid var(--grey-border);
+  border-radius: 8px;
+  cursor: pointer;
+}
+/* foot css ends here */
+
+/* tablet view & mobile view */
+@media screen and (max-width: 768px) {
+  .collab,
+  .library,
+  .encript,
+  .help {
+    display: none;
+  }
+  .tool-div {
+    overflow-x: scroll;
+    &::-webkit-scrollbar {
+        display: none;
+      }
+  }
+  .foot-left {
+    flex-grow: 1;
+    justify-content: space-between;
+  }
+  .undo-redo-div{
+    flex-grow: 1;
+  }
+  .undo,
+  .redo{
+    flex-grow: 1;
+  }
+}
