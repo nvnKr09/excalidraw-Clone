@@ -1,16 +1,9 @@
 // EventListeners
 canvas.addEventListener("mousedown", startDraw);
 canvas.addEventListener("mousemove", drawing);
-canvas.addEventListener("mouseup", stopDraw);
+canvas.addEventListener("mouseup", () => isDrawing = false);
 
-// touchEvents
-canvas.addEventListener("touchstart", startDraw);
-canvas.addEventListener("touchmove", drawing);
-canvas.addEventListener("touchend", stopDraw);
 
-canvas.addEventListener("pointerdown", startDraw);
-canvas.addEventListener("pointermove", drawing);
-canvas.addEventListener("pointerup", stopDraw);
 
 // rectangle function:---------------------
 
@@ -122,6 +115,7 @@ sizeSlider.addEventListener("change", () => (brushWidth = sizeSlider.value)); //
 clearCanvas.addEventListener("click", () => {
   ctx.clearRect(0, 0, canvas.width, canvas.height); // clearing whole canvas
   ctx.fillStyle = bgSelectedColor;
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
 });
 
 // save img function:---------------------
