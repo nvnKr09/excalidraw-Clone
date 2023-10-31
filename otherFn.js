@@ -4,6 +4,12 @@ function openEditing() {
     editingDiv.classList.toggle("hidden"); // Toggle the "hidden" class
 };
 
+//   Hiding intro:---------
+const intro = document.querySelector(".intro");
+intro.addEventListener("click", () => {
+  intro.style.display = "none";
+});
+
 // lock button
 const lock = document.getElementById("lock");
 lock.addEventListener("click", () =>{

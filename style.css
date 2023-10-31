@@ -53,10 +53,10 @@
   color: var(--text-color);
 }
 .intro-foot{
-  position: absolute;
   bottom: 1.5rem;
-  font-size: 1.5vw;
+  font-size: 1.4vw;
   color: black;
+  line-height: 5;
 }
 
 /* top menu css */
