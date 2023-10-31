@@ -27,13 +27,11 @@
   flex-direction: column;
   justify-content: space-between;
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 /* canvas styling */
 #canvas{
-  height: 100vh;
-  width: 100vw;
   position: absolute;
   z-index: 5;
 }
@@ -58,17 +56,17 @@
 }
 .intro > div > h1{
   text-align: center;
-  font-size: 4.5vw;
+  font-size: 4vw;
   line-height: 2;
 }
 .intro > div > p{
-  font-size: 2.5vw;
+  font-size: 2vw;
   color: var(--text-color);
 }
 .intro-foot{
   position: absolute;
-  bottom: 1.2rem;
-  font-size: 1.8vw;
+  bottom: 1.5rem;
+  font-size: 1.5vw;
   color: black;
 }
 

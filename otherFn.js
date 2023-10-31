@@ -22,9 +22,3 @@ lock.addEventListener("click", () =>{
   }
 });
   
-
-//   Hide welcome Message:---------
-const intro = document.querySelector(".intro");
-intro.addEventListener("click", ()=>{
-    intro.style.display = "none";
-})
