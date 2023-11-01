@@ -33,6 +33,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow-y: hidden;
   color: var(--theme);
   z-index: 11;
   background-color: var(--white);
@@ -45,16 +46,16 @@
 }
 .intro > div > h1{
   text-align: center;
-  font-size: 4vw;
+  font-size: 42px;
   line-height: 2;
 }
 .intro > div > p{
-  font-size: 2vw;
+  font-size: 22px;
   color: var(--text-color);
 }
 .intro-foot{
   bottom: 1.5rem;
-  font-size: 1.4vw;
+  font-size: 18px;
   color: black;
   line-height: 5;
 }
@@ -88,7 +89,7 @@
 }
 .tools-menu {
   height: 45px;
-  width: 550px;
+  width: max-content;
   display: flex;
   align-items: center;
   gap: 5px;
@@ -378,6 +379,9 @@
 
 /* tablet view & mobile view */
 @media screen and (max-width: 768px) {
+  #hand,
+  #shapes,
+  .v2,
   .collab,
   .library,
   .encript,
@@ -390,6 +394,17 @@
         display: none;
       }
   }
+  /* intro */
+  .intro > div > h1{
+    font-size: 30px;
+  }
+  .intro > div > p{
+    font-size: 16px;
+  }
+  .intro-foot{
+    font-size: 13px;
+  }
+  
   .foot-left {
     flex-grow: 1;
     justify-content: space-between;
@@ -400,5 +415,17 @@
   .undo,
   .redo{
     flex-grow: 1;
+  }
+}
+
+@media screen and (max-width: 426px) {
+  .intro > div > h1{
+    font-size: 22px;
+  }
+  .intro > div > p{
+    font-size: 14px;
+  }
+  .intro-foot{
+    font-size: 12px;
   }
 }
